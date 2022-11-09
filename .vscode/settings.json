@@ -1,3 +1,17 @@
 {
-  "cSpell.words": ["popl"]
+  "cSpell.words": ["popl"],
+  "[javascript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.angular": true,
+    "**/dist": true,
+    "**/target": true
+  }
 }
