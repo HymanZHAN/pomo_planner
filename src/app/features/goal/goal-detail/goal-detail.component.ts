@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'popl-goal-detail',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './goal-detail.component.html',
-  styleUrls: ['./goal-detail.component.scss']
+  styleUrls: ['./goal-detail.component.scss'],
 })
-export class GoalDetailComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class GoalDetailComponent {
+  constructor() {}
 }
