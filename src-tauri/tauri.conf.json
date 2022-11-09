@@ -1,18 +1,18 @@
 {
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist",
-    "withGlobalTauri": false
+    "beforeBuildCommand": "ng build",
+    "beforeDevCommand": "ng serve --hmr",
+    "devPath": "http://localhost:4200",
+    "distDir": "../dist"
   },
   "package": {
-    "productName": "pomo_planner",
-    "version": "0.0.0"
+    "productName": "pomo-planner",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": false
     },
     "bundle": {
       "active": true,
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "org.xzhan.pomoplanner",
+      "identifier": "com.tauri.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -58,7 +58,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "pomo_planner",
+        "title": "Pomo Planner",
         "width": 800
       }
     ]
