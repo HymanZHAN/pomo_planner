@@ -1,10 +1,16 @@
 {
   "cSpell.words": ["popl"],
-  "[javascript]": {
-    "editor.defaultFormatter": "rome.rome"
-  },
   "[typescript]": {
-    "editor.defaultFormatter": "rome.rome"
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "dprint.dprint"
   },
   "search.exclude": {
     "**/node_modules": true,

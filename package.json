@@ -2,14 +2,15 @@
   "name": "pomo-planner",
   "version": "0.0.0",
   "scripts": {
-    "prepack": "husky install",
+    "prepare": "husky install",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --hmr -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-ci": "ng test --karma-config=karma.conf.ci.js",
-    "lint": "rome check ./src && ng lint"
+    "format": "dprint fmt",
+    "lint": "dprint check ./src && ng lint"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +42,7 @@
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
+    "dprint": "^0.32.2",
     "eslint": "^8.23.1",
     "husky": "^8.0.2",
     "jasmine-core": "~4.3.0",
@@ -51,17 +53,14 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "rome": "^10.0.0",
     "typescript": "~4.7.2"
   },
   "lint-staged": {
-    "*.ts": [
-      "rome check",
-      "rome format --write"
+    "*.{ts,css,scss}": [
+      "dprint check"
     ],
     "*.{ts,html}": [
       "eslint"
-    ],
-    "*.{css,scss}": "prettier --write"
+    ]
   }
 }

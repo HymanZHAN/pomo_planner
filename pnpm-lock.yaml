@@ -24,6 +24,7 @@ specifiers:
   '@types/jasmine': ~4.0.0
   '@typescript-eslint/eslint-plugin': 5.37.0
   '@typescript-eslint/parser': 5.37.0
+  dprint: ^0.32.2
   eslint: ^8.23.1
   husky: ^8.0.2
   jasmine-core: ~4.3.0
@@ -34,7 +35,6 @@ specifiers:
   karma-jasmine-html-reporter: ~2.0.0
   lint-staged: ^13.0.3
   prettier: ^2.7.1
-  rome: ^10.0.0
   rxjs: ~7.5.0
   tslib: ^2.3.0
   typescript: ~4.7.2
@@ -69,6 +69,7 @@ devDependencies:
   '@types/jasmine': 4.0.3
   '@typescript-eslint/eslint-plugin': 5.37.0_qsckae67fzvuxl5ti6r4cyw33u
   '@typescript-eslint/parser': 5.37.0_2uhzae5rel2qyw7fhfmxrmdt3q
+  dprint: 0.32.2
   eslint: 8.27.0
   husky: 8.0.2
   jasmine-core: 4.3.0
@@ -79,7 +80,6 @@ devDependencies:
   karma-jasmine-html-reporter: 2.0.0_hjx32b5amavz4rn7ovmff56zxa
   lint-staged: 13.0.3
   prettier: 2.7.1
-  rome: 10.0.0
   typescript: 4.7.4
 
 packages:
@@ -2274,54 +2274,6 @@ packages:
       - supports-color
     dev: true
 
-  /@rometools/cli-darwin-arm64/10.0.0:
-    resolution: {integrity: sha512-JT7JccEtKyFDHXy0MxhwHN4Zc94s/kW+0aTczb1ChAoCStfjj5jWzv/yQnm+HFw5Vf3ukAocLsDNRN6d9gQYbQ==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-darwin-x64/10.0.0:
-    resolution: {integrity: sha512-HORYhz8eM3L3XePPNBhU44zFpTVfhpuO4B7fjdfho7z9kwTW22M0fVvuPrxxPauxmin7gHM8lxCD2jHxabg34Q==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-arm64/10.0.0:
-    resolution: {integrity: sha512-/L3jxo9RUwJ+uvDvAPCquAw10ccpZDuzADfZff5tHd6Fzv28cAToC3JrN/2miGpur0Fx/NIZIPbAsdI4NWGIRA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-x64/10.0.0:
-    resolution: {integrity: sha512-KC6CDeSR4haRfxmfrvCn8+NzQ7X31pDjFgD+m+PAbSXOeMr/KHmU7eDsjC3d47ORYYkYXqhx9VxHe1w3IEShMg==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-arm64/10.0.0:
-    resolution: {integrity: sha512-8XWjx7Z1dMp9q4Lvi+ax4+Y8vkbp7JHVdfrTSMQTyUA9ofaW6ah1h9iGPuKic057VTZGX66/KazC5qNTbrlckQ==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-x64/10.0.0:
-    resolution: {integrity: sha512-mAf3f32oE919cZ86KVMR/X0VOs+C16jEUyt1ww2UPw/rKUmm0DNfuT6/m4FQW8GEHdCBC8z3zdRVCd05VK7UJg==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@schematics/angular/14.2.9:
     resolution: {integrity: sha512-pt/eN+D9a6JeOjgqEdWP8lU6VQIoo3F8RcoVEVXHhjXzF2mIe1a3ZJTwY3ssdemKV4mZgseTJBG99/jxrHK0XQ==}
     engines: {node: ^14.15.0 || >=16.10.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -3280,6 +3232,10 @@ packages:
       update-browserslist-db: 1.0.10_browserslist@4.21.4
     dev: true
 
+  /buffer-crc32/0.2.13:
+    resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
+    dev: true
+
   /buffer-from/1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: true
@@ -4013,6 +3969,14 @@ packages:
       is-obj: 2.0.0
     dev: true
 
+  /dprint/0.32.2:
+    resolution: {integrity: sha512-cGKnZonCFQkcNbptAtJXlzUOqyiyYoD9pINepJ9PvkFi8iwMLChQDSjhMeqT3DDQf5Rof3pYA5LI/bafPpPknQ==}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      yauzl: 2.10.0
+    dev: true
+
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
@@ -4616,6 +4580,12 @@ packages:
     engines: {node: '>=0.8.0'}
     dependencies:
       websocket-driver: 0.7.4
+    dev: true
+
+  /fd-slicer/1.1.0:
+    resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
+    dependencies:
+      pend: 1.2.0
     dev: true
 
   /figures/3.2.0:
@@ -6602,6 +6572,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /pend/1.2.0:
+    resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
+    dev: true
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
@@ -7384,20 +7358,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
-    dev: true
-
-  /rome/10.0.0:
-    resolution: {integrity: sha512-dQnIlzgHDt94N4JoFaqe9e2aDAZfdmyGOW4UaefMztDph41mt75Mg0aeJ/C7JgcIOLbp9D4LD+omyUB5YFUUPw==}
-    engines: {node: '>=14.*'}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@rometools/cli-darwin-arm64': 10.0.0
-      '@rometools/cli-darwin-x64': 10.0.0
-      '@rometools/cli-linux-arm64': 10.0.0
-      '@rometools/cli-linux-x64': 10.0.0
-      '@rometools/cli-win32-arm64': 10.0.0
-      '@rometools/cli-win32-x64': 10.0.0
     dev: true
 
   /run-async/2.4.1:
@@ -8649,6 +8609,13 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
+    dev: true
+
+  /yauzl/2.10.0:
+    resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
+    dependencies:
+      buffer-crc32: 0.2.13
+      fd-slicer: 1.1.0
     dev: true
 
   /yn/3.1.1:
