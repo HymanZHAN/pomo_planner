@@ -18,6 +18,7 @@
     "**/*.code-search": true,
     "**/.angular": true,
     "**/dist": true,
-    "**/target": true
+    "**/target": true,
+    "**/*-lock.*": true
   }
 }

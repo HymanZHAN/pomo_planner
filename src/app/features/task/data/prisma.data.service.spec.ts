@@ -6,7 +6,7 @@ describe("PrismaDataService", () => {
   let service: PrismaDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ providers: [PrismaDataService] });
     service = TestBed.inject(PrismaDataService);
   });
 

@@ -1,1 +1,10 @@
-<p>task-overview works!</p>
+<ul *ngFor="let task of tasks$ | async">
+  <li>
+    <span>
+      <a routerLink="/tasks/{{ task.id }}">{{ task.id }}</a>
+    </span>
+    : {{ task.name }} ({{ task.email }})
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
