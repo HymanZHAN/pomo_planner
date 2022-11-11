@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
-import { MockDataService } from "../data/mock.data.service";
-import { TASK_DATA } from "../task.routes";
+import { AbstractRepository } from "@core/data";
+import { MockRepository } from "../data/mock.repository";
 
 import { TaskService } from "./task.service";
 
@@ -9,7 +9,7 @@ describe("TaskService", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TaskService, { provide: TASK_DATA, useClass: MockDataService }],
+      providers: [TaskService, { provide: AbstractRepository, useClass: MockRepository }],
     });
     service = TestBed.inject(TaskService);
   });

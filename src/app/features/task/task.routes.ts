@@ -1,18 +1,16 @@
-import { InjectionToken } from "@angular/core";
 import { Route } from "@angular/router";
 
-import { Task, IDataService } from "@core/data";
+import { AbstractRepository } from "@core/data";
 
-import { MockDataService } from "./data/mock.data.service";
+import { MockRepository } from "./data/mock.repository";
+import { TaskService } from "./services/task.service";
 import { TaskOverviewComponent } from "./task-overview/task-overview.component";
-
-export const TASK_DATA = new InjectionToken<IDataService<Task>>("task data");
 
 export const routes: Route[] = [
   {
     path: "",
     component: TaskOverviewComponent,
-    providers: [{ provide: TASK_DATA, useClass: MockDataService }],
+    providers: [{ provide: AbstractRepository, useClass: MockRepository }, TaskService],
     children: [
       {
         path: ":id",

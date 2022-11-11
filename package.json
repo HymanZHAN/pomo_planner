@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": "ng serve --hmr -o",
     "build": "ng build",
+    "build:sourcemap": "ng build --source-map --named-chunks",
+    "analyze": "npm run build:sourcemap && source-map-explorer dist/**/*.js --gzip --html result.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-watch": "ng test --watch",
@@ -51,7 +53,6 @@
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
-    "dprint": "^0.32.2",
     "eslint": "^8.23.1",
     "husky": "^8.0.2",
     "jasmine-core": "~4.3.0",
@@ -64,6 +65,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prisma": "^4.6.1",
+    "source-map-explorer": "^2.5.3",
     "typescript": "~4.7.2"
   },
   "lint-staged": {

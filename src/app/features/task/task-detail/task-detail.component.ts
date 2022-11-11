@@ -1,8 +1,11 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { TASK_DATA } from "../task.routes";
 import { ActivatedRoute } from "@angular/router";
-import { switchMap } from "rxjs";
+import { filter, map, Observable, Subject, switchMap, takeUntil } from "rxjs";
+
+import { Task } from "@core/data";
+
+import { TaskService } from "../services/task.service";
 
 @Component({
   selector: "popl-task-detail",
@@ -12,16 +15,18 @@ import { switchMap } from "rxjs";
   styles: [],
 })
 export class TaskDetailComponent {
-  dataService;
-  task$;
-  route;
+  service: TaskService;
+  route: ActivatedRoute;
+  task$: Observable<Task | undefined>;
 
   constructor() {
     this.route = inject(ActivatedRoute);
-    this.dataService = inject(TASK_DATA);
+    this.service = inject(TaskService);
 
     this.task$ = this.route.paramMap.pipe(
-      switchMap((params) => this.dataService.get(Number(params.get("id")))),
+      map((params) => Number(params.get("id"))),
+      filter((id) => !isNaN(id)),
+      switchMap((id) => this.service.getTaskById(id)),
     );
   }
 }

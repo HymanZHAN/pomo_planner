@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Task } from "@core/data";
+import { AbstractRepository, Task } from "@core/data";
 import { Observable, of } from "rxjs";
-import { IDataService } from "@core/data";
 
 @Injectable()
-export class MockDataService implements IDataService<Task> {
+export class MockRepository implements AbstractRepository<Task> {
   private tasks: Task[];
 
   constructor() {
