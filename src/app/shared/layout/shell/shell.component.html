@@ -1,235 +1,310 @@
-<div class="relative flex h-screen overflow-hidden bg-gray-50">
-  <!-- Narrow sidebar -->
-  <div class="hidden w-28 overflow-y-auto bg-primary-800 md:block">
-    <nav class="flex h-screen w-full flex-col items-center py-6">
-      <div class="flex flex-shrink-0 items-center">
-        <popl-logo-solid
-          class="h-8 w-auto cursor-pointer text-primary-50"
-          routerLink="/"
-        ></popl-logo-solid>
-      </div>
-
-      <div class="mt-6 w-full flex-1 space-y-1 px-2">
-        <a class="shell-nav-link" routerLink="goals" routerLinkActive="active">
-          <heroicon-home-outline></heroicon-home-outline>
-          <span class="mt-2">Goals</span>
-        </a>
-
-        <a class="shell-nav-link" routerLink="plans" routerLinkActive="active">
-          <heroicon-pencil-outline></heroicon-pencil-outline>
-          <span class="mt-2">Plans</span>
-        </a>
-
-        <a class="shell-nav-link" routerLink="tasks" routerLinkActive="active">
-          <heroicon-book-open-outline></heroicon-book-open-outline>
-          <span class="mt-2">Tasks</span>
-        </a>
-      </div>
-
-      <div class="w-full space-y-1 px-2">
-        <a class="shell-nav-link" routerLink="profiles/me" routerLinkActive="active">
-          <heroicon-user-circle-outline class="h-auto w-8"></heroicon-user-circle-outline>
-        </a>
-      </div>
-    </nav>
-  </div>
-
-  <!-- 
-    Mobile menu
-    Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-  -->
-  <div
-    *ngIf="isSidebarOpen"
-    class="fixed inset-0 z-40 flex md:hidden"
-    @animContainer
-    role="dialog"
-    aria-modal="true"
-  >
-    <!-- Off-canvas menu overlay, show/hide based on off-canvas menu state. -->
-    <div
-      class="fixed inset-0 bg-gray-700 bg-opacity-70"
-      (click)="closeSidebar()"
-      @sidebarOverlay
-      aria-hidden="true"
-    ></div>
-
-    <!-- Off-canvas menu, show/hide based on off-canvas menu state. -->
-    <div
-      class="relative flex w-full max-w-xs flex-1 flex-col bg-primary-800 pt-5 pb-4"
-      @leftSlideInOut
-    >
-      <!-- Close button, show/hide based on off-canvas menu state. -->
-      <div class="absolute top-1 right-0 -mr-14 p-1" @sidebarOverlay>
-        <button
-          class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white"
-          (click)="toggleSidebar()"
-          type="button"
-        >
-          <heroicon-x-outline class="h-6 w-6 text-white"></heroicon-x-outline>
-          <span class="sr-only">Close sidebar</span>
-        </button>
-      </div>
-
-      <div class="flex flex-shrink-0 items-center px-4">
-        <popl-logo-solid
-          class="h-8 w-auto cursor-pointer text-primary-50"
-          routerLink="/"
-        ></popl-logo-solid>
-      </div>
-
-      <div class="mt-5 h-0 flex-1 overflow-y-auto px-2">
-        <nav class="flex h-full flex-col justify-between">
-          <div class="space-y-1">
-            <a
-              class="shell-nav-link-mobile"
-              [routerLinkActiveOptions]="{ exact: true }"
-              routerLink="goals"
-              routerLinkActive="active"
-            >
-              <heroicon-home-outline class="mr-3 h-6 w-6"></heroicon-home-outline>
-              <span>Goals</span>
-            </a>
-
-            <a class="shell-nav-link-mobile" routerLink="plans" routerLinkActive="active">
-              <heroicon-pencil-outline class="mr-3 h-6 w-6"></heroicon-pencil-outline>
-              <span>Plans</span>
-            </a>
-
-            <a class="shell-nav-link-mobile" routerLink="tasks" routerLinkActive="active">
-              <heroicon-book-open-outline class="mr-3 h-6 w-6"></heroicon-book-open-outline>
-              <span>Tasks</span>
-            </a>
+<div class="flex h-full">
+  <!-- Static sidebar for desktop -->
+  <div *ngIf="isSidebarOpen" class="h-full flex flex-shrink-0">
+    <div class="flex w-64 flex-col" @leftSlideInOut @shrinkOutExpandIn>
+      <!-- Sidebar component, swap this element with another sidebar if you like -->
+      <div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-gray-100">
+        <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+          <!-- Navbar Header -->
+          <div class="flex flex-shrink-0 items-center px-4 justify-between">
+            <img
+              class="h-8 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              alt="Your Company"
+            />
           </div>
 
-          <div class="w-18 mx-auto">
-            <a
-              class="shell-nav-link-mobile h-18 items-center justify-center"
-              routerLink="profiles/me"
-              routerLinkActive="active"
-            >
-              <heroicon-user-circle-outline class="h-auto w-10"></heroicon-user-circle-outline>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </div>
+          <!-- Navbar -->
+          <nav class="mt-5 flex-1" aria-label="Sidebar">
+            <div class="space-y-1 px-2">
+              <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+              <a
+                class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!--
+                  Heroicon name: outline/home
 
-    <div class="w-14 flex-shrink-0" aria-hidden="true">
-      <!-- Dummy element to force sidebar to shrink to fit close icon -->
+                  Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
+                -->
+                <svg
+                  class="text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+                Dashboard
+              </a>
+
+              <a
+                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!-- Heroicon name: outline/calendar -->
+                <svg
+                  class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                  />
+                </svg>
+                Calendar
+              </a>
+
+              <a
+                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!-- Heroicon name: outline/user-group -->
+                <svg
+                  class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+                  />
+                </svg>
+                Teams
+              </a>
+
+              <a
+                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!-- Heroicon name: outline/magnifying-glass-circle -->
+                <svg
+                  class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Directory
+              </a>
+
+              <a
+                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!-- Heroicon name: outline/megaphone -->
+                <svg
+                  class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"
+                  />
+                </svg>
+                Announcements
+              </a>
+
+              <a
+                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                href="#"
+              >
+                <!-- Heroicon name: outline/map -->
+                <svg
+                  class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"
+                  />
+                </svg>
+                Office Map
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Navbar Footer -->
+        <div class="flex flex-shrink-0 border-t border-gray-200 p-4">
+          <a class="group block w-full flex-shrink-0" href="#">
+            <div class="flex items-center">
+              <div>
+                <img
+                  class="inline-block h-9 w-9 rounded-full"
+                  src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="ml-3">
+                <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  Whitney Francis
+                </p>
+                <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+                  View profile
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Content area -->
-  <div class="flex flex-1 flex-col overflow-hidden">
-    <header class="w-full">
-      <div
-        class="relative z-10 flex h-16 flex-shrink-0 border-b border-gray-200 bg-white shadow-sm"
-      >
-        <button
-          class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600 md:hidden"
-          (click)="toggleSidebar()"
-          type="button"
+  <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
+    <div class="relative z-0 flex flex-1 overflow-hidden">
+      <header class="w-full">
+        <div
+          class="relative z-10 flex h-14 flex-shrink-0 border-b border-gray-200 bg-white shadow-sm"
         >
-          <span class="sr-only">Open sidebar</span>
-          <heroicon-menu-alt-two-outline></heroicon-menu-alt-two-outline>
-        </button>
-
-        <div class="flex flex-1 justify-between px-4 sm:px-6">
-          <div class="flex flex-1">
-            <form class="flex w-full md:ml-0" action="#" method="GET">
-              <label class="sr-only" for="desktop-search-field"> Search all files </label>
-              <label class="sr-only" for="mobile-search-field"> Search all files </label>
-              <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                  <heroicon-search-solid class="h-5 w-5 flex-shrink-0"></heroicon-search-solid>
-                </div>
-                <input
-                  class="h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-primary-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:hidden"
-                  name="mobile-search-field"
-                  id="mobile-search-field"
-                  (input)="onSearchBoxInput($event)"
-                  (keyup)="onSearchBoxEnter($event)"
-                  [value]="searchTerm"
-                  placeholder="Search"
-                  type="search"
-                />
-                <input
-                  class="hidden h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-primary-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:block"
-                  name="desktop-search-field"
-                  id="desktop-search-field"
-                  (input)="onSearchBoxInput($event)"
-                  (keyup)="onSearchBoxEnter($event)"
-                  [value]="searchTerm"
-                  placeholder="Search all files"
-                  type="search"
-                />
-              </div>
-            </form>
-          </div>
-          <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
-            <!-- Profile dropdown -->
-            <div
-              class="relative flex-shrink-0"
-              (clickedOutside)="closeProfileDropdown()"
-              poplClickOutside
+          <div class="flex flex-1 justify-between pr-4">
+            <button
+              class="px-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-azure-700 rounded-md"
+              (click)="toggleSidebar()"
+              [hidden]="isSidebarOpen"
+              type="button"
             >
-              <div *ngIf="true" (click)="toggleProfileDropdown()">
-                <button
-                  class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-azure-700 focus:ring-offset-2"
-                  id="user-menu-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                >
-                  <span class="sr-only">Open user menu</span>
-                  <img
-                    class="h-8 w-8 rounded-full"
-                    [src]="'assets/images/default-avatar.png'"
-                    alt=""
-                  />
-                </button>
-              </div>
+              <span class="sr-only">Open sidebar</span>
+              <heroicon-menu-alt-two-outline
+                class="w-6 h-6 text-gray-400 group-hover:text-gray-500"
+              ></heroicon-menu-alt-two-outline>
+            </button>
 
-              <!-- Dropdown menu, show/hide based on menu state. -->
-              <div
-                *ngIf="isProfileDropdownOpen"
-                class="absolute right-0 mt-2 w-48 origin-top-right space-y-2 rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                @profileDropdownAnim
-                role="menu"
-                tabindex="-1"
-                aria-orientation="vertical"
-                aria-labelledby="user-menu-button"
+            <button
+              class="px-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-azure-700 group rounded-md"
+              (click)="toggleSidebar()"
+              [hidden]="!isSidebarOpen"
+              type="button"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 group-hover:text-gray-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
               >
-                <div class="border-b border-azure-700 pb-2">
-                  <a
-                    class="flex w-full justify-center rounded-md px-4 py-2 text-sm font-medium text-primary-900 hover:bg-primary-50"
-                    (click)="closeProfileDropdown()"
-                    routerLink="profiles/me"
-                    role="menuitem"
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <div class="flex items-center space-x-4">
+              <div
+                class="relative flex-shrink-0"
+                (clickedOutside)="closeProfileDropdown()"
+                poplClickOutside
+              >
+                <div *ngIf="true" (click)="toggleProfileDropdown()">
+                  <button
+                    class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-azure-700 focus:ring-offset-2"
+                    id="user-menu-button"
+                    type="button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
                   >
-                    {{ "Current User" }}
+                    <span class="sr-only">Open user menu</span>
+                    <img
+                      class="h-8 w-8 rounded-full"
+                      [src]="'assets/images/default-avatar.png'"
+                      alt=""
+                    />
+                  </button>
+                </div>
+
+                <!-- Profile dropdown -->
+                <!-- Dropdown menu, show/hide based on menu state. -->
+                <div
+                  *ngIf="isProfileDropdownOpen"
+                  class="absolute right-0 mt-2 w-48 origin-top-right space-y-2 rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  @profileDropdownAnim
+                  role="menu"
+                  tabindex="-1"
+                  aria-orientation="vertical"
+                  aria-labelledby="user-menu-button"
+                >
+                  <div class="border-b border-azure-700 pb-2">
+                    <a
+                      class="flex w-full justify-center rounded-md px-4 py-2 text-sm font-medium text-primary-900 hover:bg-primary-50"
+                      (click)="closeProfileDropdown()"
+                      routerLink="profiles/me"
+                      role="menuitem"
+                    >
+                      {{ "Current User" }}
+                    </a>
+                  </div>
+                  <a
+                    class="block cursor-pointer rounded-md px-4 py-2 text-sm text-primary-800 hover:bg-primary-50"
+                    (click)="signOut()"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    Sign out
                   </a>
                 </div>
-                <a
-                  class="block cursor-pointer rounded-md px-4 py-2 text-sm text-primary-800 hover:bg-primary-50"
-                  (click)="signOut()"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Sign out
-                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <div class="flex flex-1 items-stretch overflow-hidden">
-      <main class="flex-1 overflow-y-auto">
-        <div class="px-8 pt-6 pb-8 sm:px-6 lg:px-8 lg:pt-12 lg:pb-20">
-          <router-outlet></router-outlet>
+      </header>
+      <main class="relative z-0 flex-1 overflow-y-auto focus:outline-none">
+        <!-- Start main area-->
+        <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
+          <div class="h-full rounded-lg border-2 border-dashed border-gray-200"></div>
         </div>
+        <!-- End main area -->
       </main>
+      <aside
+        class="relative hidden w-96 flex-shrink-0 overflow-y-auto border-l border-gray-200 xl:flex xl:flex-col"
+      >
+        <!-- Start secondary column (hidden on smaller screens) -->
+        <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
+          <div class="h-full rounded-lg border-2 border-dashed border-gray-200"></div>
+        </div>
+        <!-- End secondary column -->
+      </aside>
     </div>
   </div>
 </div>

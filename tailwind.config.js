@@ -134,6 +134,7 @@ const PALETTE_NEUTRAL = {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./src/index.html",
     "./src/styles/**/*.scss",
     "./src/app/*.{ts,html,scss}",
     "./src/app/core/**/*.{ts,html,scss}",

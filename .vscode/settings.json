@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["popl"],
+  "cSpell.words": ["heroicon", "popl"],
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,

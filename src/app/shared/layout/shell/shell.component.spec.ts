@@ -1,10 +1,8 @@
-import { importProvidersFrom } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { CommonModule, Location } from "@angular/common";
 
 import { ShellComponent } from "./shell.component";
-import { Router, RouterModule } from "@angular/router";
 import { RouterTestingModule } from "@angular/router/testing";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 describe("ShellComponent", () => {
   let component: ShellComponent;
@@ -12,8 +10,7 @@ describe("ShellComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ShellComponent],
-      providers: [],
+      imports: [RouterTestingModule, ShellComponent, BrowserAnimationsModule],
     }).compileComponents();
   });
 

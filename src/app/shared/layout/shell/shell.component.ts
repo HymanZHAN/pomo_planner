@@ -1,4 +1,4 @@
-import { transition, trigger, useAnimation } from "@angular/animations";
+import { animate, state, style, transition, trigger, useAnimation } from "@angular/animations";
 import { CommonModule, Location } from "@angular/common";
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Router, RouterLinkActive, RouterLinkWithHref, RouterOutlet } from "@angular/router";
@@ -10,6 +10,7 @@ import {
   slideOutXAnimation,
   animContainer,
 } from "@shared/animations";
+import { expandAnimation, shrinkAnimation } from "@shared/animations/resize.animation";
 import { ClickOutsideDirective } from "@shared/directives/click-outside.directive";
 import {
   HomeOutlineComponent,
@@ -54,6 +55,10 @@ import {
       transition(":enter", useAnimation(slideInXAnimation)),
       transition(":leave", useAnimation(slideOutXAnimation)),
     ]),
+    trigger("shrinkOutExpandIn", [
+      transition(":enter", useAnimation(expandAnimation)),
+      transition(":leave", useAnimation(shrinkAnimation)),
+    ]),
     trigger("sidebarOverlay", [
       transition(
         ":enter",
@@ -74,7 +79,7 @@ import {
 })
 export class ShellComponent implements OnInit {
   isProfileDropdownOpen = false;
-  isSidebarOpen = false;
+  isSidebarOpen = true;
 
   searchTerm = "";
 
