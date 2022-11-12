@@ -1,7 +1,7 @@
-import { Component, inject, OnDestroy } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
-import { filter, map, Observable, Subject, switchMap, takeUntil } from "rxjs";
+import { filter, map, Observable, switchMap } from "rxjs";
 
 import { Task } from "@core/data";
 

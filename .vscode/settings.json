@@ -1,17 +1,5 @@
 {
   "cSpell.words": ["popl"],
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "dprint.dprint"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "dprint.dprint"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "dprint.dprint"
-  },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,

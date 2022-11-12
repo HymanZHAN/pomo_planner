@@ -1,0 +1,173 @@
+const PALETTE_PRIMARY = {
+  900: "#102A43",
+  800: "#243B53",
+  700: "#334E68",
+  600: "#486581",
+  500: "#627D98",
+  400: "#829AB1",
+  300: "#9FB3C8",
+  200: "#BCCCDC",
+  100: "#D9E2EC",
+  50: "#F0F4F8",
+};
+const PALETTE_AZURE = {
+  900: "#035388",
+  800: "#0B69A3",
+  700: "#127FBF",
+  600: "#1992D4",
+  500: "#2BB0ED",
+  400: "#40C3F7",
+  300: "#5ED0FA",
+  200: "#81DEFD",
+  100: "#B3ECFF",
+  50: "#E3F8FF",
+};
+const PALETTE_CYAN = {
+  900: "#044E54",
+  800: "#0A6C74",
+  700: "#0E7C86",
+  600: "#14919B",
+  500: "#2CB1BC",
+  400: "#38BEC9",
+  300: "#54D1DB",
+  200: "#87EAF2",
+  100: "#BEF8FD",
+  50: "#E0FCFF",
+};
+const PALETTE_GREEN = {
+  900: "#014D40",
+  800: "#0C6B58",
+  700: "#147D64",
+  600: "#199473",
+  500: "#27AB83",
+  400: "#3EBD93",
+  300: "#65D6AD",
+  200: "#8EEDC7",
+  100: "#C6F7E2",
+  50: "#EFFCF6",
+};
+const PALETTE_YELLOW = {
+  900: "#8D2B0B",
+  800: "#B44D12",
+  700: "#CB6E17",
+  600: "#DE911D",
+  500: "#F0B429",
+  400: "#F7C948",
+  300: "#FADB5F",
+  200: "#FCE588",
+  100: "#FFF3C4",
+  50: "#FFFBEA",
+};
+const PALETTE_RED = {
+  900: "#610316",
+  800: "#8A041A",
+  700: "#AB091E",
+  600: "#CF1124",
+  500: "#E12D39",
+  400: "#EF4E4E",
+  300: "#F86A6A",
+  200: "#FF9B9B",
+  100: "#FFBDBD",
+  50: "#FFE3E3",
+};
+const PALETTE_SUCCESS = {
+  900: "#014D40",
+  800: "#0C6B58",
+  700: "#147D64",
+  600: "#199473",
+  500: "#27AB83",
+  400: "#3EBD93",
+  300: "#65D6AD",
+  200: "#8EEDC7",
+  100: "#C6F7E2",
+  50: "#EFFCF6",
+};
+const PALETTE_WARNING = {
+  900: "#8D2B0B",
+  800: "#B44D12",
+  700: "#CB6E17",
+  600: "#DE911D",
+  500: "#F0B429",
+  400: "#F7C948",
+  300: "#FADB5F",
+  200: "#FCE588",
+  100: "#FFF3C4",
+  50: "#FFFBEA",
+};
+const PALETTE_ERROR = {
+  900: "#610316",
+  800: "#8A041A",
+  700: "#AB091E",
+  600: "#CF1124",
+  500: "#E12D39",
+  400: "#EF4E4E",
+  300: "#F86A6A",
+  200: "#FF9B9B",
+  100: "#FFBDBD",
+  50: "#FFE3E3",
+};
+const PALETTE_GRAY = {
+  900: "#111827",
+  800: "#1F2937",
+  700: "#374151",
+  600: "#4B5563",
+  500: "#6B7280",
+  400: "#9CA3AF",
+  300: "#D1D5DB",
+  200: "#E5E7EB",
+  100: "#F3F4F6",
+  50: "#F9FAFB",
+};
+const PALETTE_NEUTRAL = {
+  900: "#111827",
+  800: "#1F2937",
+  700: "#374151",
+  600: "#4B5563",
+  500: "#6B7280",
+  400: "#9CA3AF",
+  300: "#D1D5DB",
+  200: "#E5E7EB",
+  100: "#F3F4F6",
+  50: "#F9FAFB",
+};
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/styles/**/*.scss",
+    "./src/app/*.{ts,html,scss}",
+    "./src/app/core/**/*.{ts,html,scss}",
+    "./src/app/features/**/*.{ts,html,scss}",
+    "./src/app/shared/**/*.{ts,html,scss}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: PALETTE_PRIMARY,
+        azure: PALETTE_AZURE,
+        cyan: PALETTE_CYAN,
+        green: PALETTE_GREEN,
+        yellow: PALETTE_YELLOW,
+        red: PALETTE_RED,
+        gray: PALETTE_GRAY,
+        success: PALETTE_SUCCESS,
+        warning: PALETTE_WARNING,
+        error: PALETTE_ERROR,
+        neutral: PALETTE_NEUTRAL,
+      },
+    },
+    fontFamily: {
+      // sans: ["Inter", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+    },
+  },
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+  // variants: {
+  //   extend: {
+  //     backgroundColor: ['disabled'],
+  //     textColor: ['disabled'],
+  //     opacity: ['disabled'],
+  //   },
+  // },
+};

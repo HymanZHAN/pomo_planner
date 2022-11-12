@@ -12,8 +12,8 @@
     "test": "ng test",
     "test-watch": "ng test --watch",
     "test-ci": "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI",
-    "fmt": "dprint fmt",
-    "lint": "dprint check && ng lint",
+    "fmt": "prettier -w ./src --cache",
+    "lint": "prettier -c ./src --cache && ng lint",
     "gfc": "ng g c --inline-style",
     "guic": "ng g c --inline-style --inline-template --flat"
   },
@@ -33,6 +33,15 @@
     "@ngneat/elf-entities": "^4.4.2",
     "@prisma/client": "4.6.1",
     "@tauri-apps/api": "^1.2.0",
+    "@tiptap/core": "2.0.0-beta.202",
+    "@tiptap/extension-bubble-menu": "2.0.0-beta.202",
+    "@tiptap/extension-document": "2.0.0-beta.202",
+    "@tiptap/extension-floating-menu": "2.0.0-beta.202",
+    "@tiptap/extension-heading": "2.0.0-beta.202",
+    "@tiptap/extension-placeholder": "2.0.0-beta.202",
+    "@tiptap/extension-text": "2.0.0-beta.202",
+    "@tiptap/html": "2.0.0-beta.202",
+    "@tiptap/starter-kit": "2.0.0-beta.202",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -49,11 +58,19 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@ngneat/elf-cli": "^3.0.1",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/typography": "^0.5.1",
     "@tauri-apps/cli": "^1.2.0",
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-rxjs": "^5.0.2",
+    "eslint-plugin-rxjs-angular": "^2.0.0",
     "husky": "^8.0.2",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
@@ -63,14 +80,18 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "lint-staged": "^13.0.3",
+    "postcss": "^8.4.19",
     "prettier": "^2.7.1",
+    "prettier-plugin-organize-attributes": "^0.0.5",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "prisma": "^4.6.1",
     "source-map-explorer": "^2.5.3",
+    "tailwindcss": "^3.2.4",
     "typescript": "~4.7.2"
   },
   "lint-staged": {
     "*.{ts,css,scss}": [
-      "dprint check"
+      "prettier -c"
     ],
     "*.{ts,html}": [
       "eslint"
