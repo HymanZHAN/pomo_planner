@@ -1,29 +1,29 @@
 import { Component, ChangeDetectionStrategy, Input } from "@angular/core";
 
 @Component({
-  selector: "heroicon-menu-alt-two-outline",
+  selector: "heroicon-bars-3-bottom-left",
   standalone: true,
   template: `
     <svg
-      [class]="class"
+      class="w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
+      stroke-width="1.5"
       stroke="currentColor"
-      aria-hidden="true"
     >
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h7"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
       />
     </svg>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MenuAltTwoOutlineComponent {
+export class HeroBars3BottomLeftComponent {
   @Input() class = "h-6 w-6";
+  @Input() solid = false;
   constructor() {}
 }

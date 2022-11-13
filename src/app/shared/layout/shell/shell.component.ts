@@ -1,6 +1,6 @@
-import { animate, state, style, transition, trigger, useAnimation } from "@angular/animations";
-import { CommonModule, Location } from "@angular/common";
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { transition, trigger, useAnimation } from "@angular/animations";
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, RouterLinkActive, RouterLinkWithHref, RouterOutlet } from "@angular/router";
 
 import {
@@ -13,15 +13,17 @@ import {
 import { expandAnimation, shrinkAnimation } from "@shared/animations/resize.animation";
 import { ClickOutsideDirective } from "@shared/directives/click-outside.directive";
 import {
-  HomeOutlineComponent,
   XOutlineComponent,
   SearchSolidComponent,
   LogoSolidComponent,
   UserCircleOutlineComponent,
   BookOpenOutlineComponent,
-  PencilOutlineComponent,
-  MenuAltTwoOutlineComponent,
   DocumentTextOutlineComponent,
+  PencilOutlineComponent,
+  HeroBars3BottomLeftComponent,
+  HeroCalendarComponent,
+  HeroHomeComponent,
+  HeroChevronDoubleLeftComponent,
 } from "@shared/icons";
 
 @Component({
@@ -36,14 +38,16 @@ import {
     RouterLinkWithHref,
     RouterLinkActive,
     ClickOutsideDirective,
-    HomeOutlineComponent,
+    HeroCalendarComponent,
+    HeroChevronDoubleLeftComponent,
+    HeroHomeComponent,
     XOutlineComponent,
     SearchSolidComponent,
     LogoSolidComponent,
     UserCircleOutlineComponent,
     BookOpenOutlineComponent,
     PencilOutlineComponent,
-    MenuAltTwoOutlineComponent,
+    HeroBars3BottomLeftComponent,
     DocumentTextOutlineComponent,
   ],
   animations: [
@@ -77,19 +81,13 @@ import {
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
   isProfileDropdownOpen = false;
   isSidebarOpen = true;
 
   searchTerm = "";
 
-  constructor(private location: Location, private router: Router) {}
-
-  ngOnInit(): void {
-    this.location.onUrlChange(() => {
-      this.closeSidebar();
-    });
-  }
+  constructor(private router: Router) {}
 
   toggleProfileDropdown() {
     this.isProfileDropdownOpen = !this.isProfileDropdownOpen;

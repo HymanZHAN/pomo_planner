@@ -1,0 +1,19 @@
+a.shell-nav-link {
+  @apply text-gray-600 
+  hover:bg-gray-50 hover:text-gray-900 
+  flex items-center 
+  px-2 py-2 
+  text-sm font-medium rounded-md;
+}
+
+a.shell-nav-link svg {
+  @apply text-gray-400 group-hover:text-gray-500 !important;
+}
+
+a.shell-nav-link.active {
+  @apply bg-gray-200 text-gray-900;
+}
+
+a.shell-nav-link.active svg {
+  @apply text-yellow-700 !important;
+}

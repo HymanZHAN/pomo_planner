@@ -1,33 +1,11 @@
 a.shell-nav-link {
-  @apply text-primary-200
-  hover:bg-primary-700 hover:text-white
-  transition-colors
-  w-full
-  p-3
-  rounded-md
-  flex flex-col
-  items-center
-  text-xs
-  font-medium;
+  @apply text-gray-600 
+  hover:bg-gray-50 hover:text-gray-900 
+  flex items-center 
+  px-2 py-2 
+  text-sm font-medium rounded-md;
 
   &.active {
-    @apply text-white bg-primary-900;
-  }
-}
-
-a.shell-nav-link-mobile {
-  @apply text-primary-200
-  hover:bg-primary-700 hover:text-white
-  transition-colors
-  py-2
-  px-3
-  rounded-md
-  flex
-  items-center
-  text-sm
-  font-medium;
-
-  &.active {
-    @apply text-white bg-primary-900;
+    @apply bg-gray-200 text-gray-900;
   }
 }

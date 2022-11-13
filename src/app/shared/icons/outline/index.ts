@@ -4,7 +4,6 @@ export * from "./document-text-outline.component";
 export * from "./eye-off-outline.component";
 export * from "./eye-outline.component";
 export * from "./home-outline.component";
-export * from "./menu-alt-two-outline.component";
 export * from "./pencil-outline.component";
 export * from "./pencil-alt-outline.component";
 export * from "./user-circle-outline.component";
