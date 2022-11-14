@@ -24,6 +24,8 @@ import {
   HeroCalendarComponent,
   HeroHomeComponent,
   HeroChevronDoubleLeftComponent,
+  HeroRectangleStackComponent,
+  HeroFlagComponent,
 } from "@shared/icons";
 
 @Component({
@@ -41,6 +43,8 @@ import {
     HeroCalendarComponent,
     HeroChevronDoubleLeftComponent,
     HeroHomeComponent,
+    HeroFlagComponent,
+    HeroRectangleStackComponent,
     XOutlineComponent,
     SearchSolidComponent,
     LogoSolidComponent,
