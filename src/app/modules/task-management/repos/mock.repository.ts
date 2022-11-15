@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AbstractRepository, Task } from "@core/data";
+import { AbstractRepository, Task } from "@core/infra";
 import { Observable, of } from "rxjs";
 
 @Injectable()

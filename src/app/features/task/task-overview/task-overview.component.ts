@@ -1,7 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLinkWithHref, RouterOutlet } from "@angular/router";
-import { TaskService } from "../services/task.service";
+
+import { TaskFacade } from "@task-management/application";
 
 @Component({
   selector: "popl-task-overview",
@@ -11,9 +12,9 @@ import { TaskService } from "../services/task.service";
   styles: [],
 })
 export class TaskOverviewComponent {
-  service: TaskService;
+  service: TaskFacade;
 
   constructor() {
-    this.service = inject(TaskService);
+    this.service = inject(TaskFacade);
   }
 }

@@ -3,9 +3,9 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { filter, map, Observable, switchMap } from "rxjs";
 
-import { Task } from "@core/data";
+import { Task } from "@core/infra";
 
-import { TaskService } from "../services/task.service";
+import { TaskFacade } from "@task-management/application";
 
 @Component({
   selector: "popl-task-detail",
@@ -15,13 +15,13 @@ import { TaskService } from "../services/task.service";
   styles: [],
 })
 export class TaskDetailComponent {
-  service: TaskService;
+  service: TaskFacade;
   route: ActivatedRoute;
   task$: Observable<Task | undefined>;
 
   constructor() {
     this.route = inject(ActivatedRoute);
-    this.service = inject(TaskService);
+    this.service = inject(TaskFacade);
 
     this.task$ = this.route.paramMap.pipe(
       map((params) => Number(params.get("id"))),

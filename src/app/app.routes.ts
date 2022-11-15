@@ -3,7 +3,7 @@ import { Route } from "@angular/router";
 export const routes: Route[] = [
   {
     path: "",
-    loadChildren: () => import("./shared/layout/shell/routes").then((m) => m.routes),
+    loadChildren: () => import("./core/shell/routes").then((m) => m.routes),
   },
   // {
   //   path: "goals",

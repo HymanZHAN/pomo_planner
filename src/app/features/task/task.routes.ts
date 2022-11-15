@@ -1,16 +1,17 @@
 import { Route } from "@angular/router";
 
-import { AbstractRepository } from "@core/data";
+import { AbstractRepository } from "@core/infra";
 
-import { MockRepository } from "./data/mock.repository";
-import { TaskService } from "./services/task.service";
+import { MockRepository } from "@task-management/repos";
+import { TaskFacade } from "@task-management/application";
+
 import { TaskOverviewComponent } from "./task-overview/task-overview.component";
 
 export const routes: Route[] = [
   {
     path: "",
     component: TaskOverviewComponent,
-    providers: [{ provide: AbstractRepository, useClass: MockRepository }, TaskService],
+    providers: [{ provide: AbstractRepository, useClass: MockRepository }, TaskFacade],
     children: [
       {
         path: ":id",

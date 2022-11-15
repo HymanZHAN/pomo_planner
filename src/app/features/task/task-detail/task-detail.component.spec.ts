@@ -1,7 +1,7 @@
 import { importProvidersFrom } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { AbstractRepository } from "@core/data";
+import { AbstractRepository } from "@core/infra";
 import { MockRepository } from "../data/mock.repository";
 import { TaskService } from "../services/task.service";
 

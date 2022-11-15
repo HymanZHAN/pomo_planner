@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { AbstractRepository, Task } from "@core/data";
+import { AbstractRepository, Task } from "@core/infra";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable()
-export class TaskService {
+export class TaskFacade {
   private tasks = new BehaviorSubject<Task[]>([]);
   readonly tasks$ = this.tasks.asObservable();
 
