@@ -2,7 +2,7 @@ import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLinkWithHref, RouterOutlet } from "@angular/router";
 
-import { TaskFacade } from "@task-management/application";
+import { TaskFacade } from "src/modules/task-management/application";
 
 @Component({
   selector: "popl-task-overview",

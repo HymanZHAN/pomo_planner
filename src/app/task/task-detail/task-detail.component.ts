@@ -3,9 +3,7 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { filter, map, Observable, switchMap } from "rxjs";
 
-import { Task } from "@core/infra";
-
-import { TaskFacade } from "@task-management/application";
+import { TaskDto, TaskFacade } from "src/modules/task-management/application";
 
 @Component({
   selector: "popl-task-detail",
@@ -17,7 +15,7 @@ import { TaskFacade } from "@task-management/application";
 export class TaskDetailComponent {
   service: TaskFacade;
   route: ActivatedRoute;
-  task$: Observable<Task | undefined>;
+  task$: Observable<TaskDto | undefined>;
 
   constructor() {
     this.route = inject(ActivatedRoute);

@@ -9,8 +9,8 @@ import {
   slideInXAnimation,
   slideOutXAnimation,
   animContainer,
-} from "@shared/animations";
-import { expandAnimation, shrinkAnimation } from "@shared/animations/resize.animation";
+} from "src/shared/animations";
+import { expandAnimation, shrinkAnimation } from "src/shared/animations/resize.animation";
 import { ClickOutsideDirective } from "@shared/directives/click-outside.directive";
 import {
   XOutlineComponent,

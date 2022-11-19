@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { AbstractRepository } from "@core/infra";
 
-import { MockRepository } from "@task-management/repos";
-import { TaskFacade } from "@task-management/application";
+import { mockTaskFacade, TaskFacade } from "src/modules/task-management/application";
 
 import { TaskOverviewComponent } from "./task-overview.component";
 
@@ -14,7 +12,7 @@ describe("TaskOverviewComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TaskOverviewComponent, RouterTestingModule],
-      providers: [{ provide: AbstractRepository, useClass: MockRepository }, TaskFacade],
+      providers: [{ provide: TaskFacade, useValue: mockTaskFacade }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TaskOverviewComponent);

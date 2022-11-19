@@ -21,12 +21,11 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "@core/*": ["src/app/core/*"],
-      "@features/*": ["src/app/features/*"],
-      "@task-management/*": ["src/app/modules/task-management/*"],
-      "@pomodoro/*": ["src/app/modules/pomodoro/*"],
-      "@planning/*": ["src/app/modules/planning/*"],
-      "@modules/*": ["src/app/modules/*"],
-      "@shared/*": ["src/app/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@modules/*": ["src/modules/*"],
+      "@task-management/*": ["src/modules/task-management/*"],
+      "@pomodoro/*": ["src/modules/pomodoro/*"],
+      "@planning/*": ["src/modules/planning/*"]
     }
   },
   "angularCompilerOptions": {

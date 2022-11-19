@@ -10,15 +10,15 @@ export const routes: Routes = [
     children: [
       {
         path: "goals",
-        loadChildren: () => import("@features/goal/goal.routes").then((m) => m.routes),
+        loadChildren: () => import("src/app/goal/goal.routes").then((m) => m.routes),
       },
       {
         path: "plans",
-        loadChildren: () => import("@features/plan/plan.routes").then((m) => m.routes),
+        loadChildren: () => import("src/app/plan/plan.routes").then((m) => m.routes),
       },
       {
         path: "tasks",
-        loadChildren: () => import("@features/task/task.routes").then((m) => m.routes),
+        loadChildren: () => import("src/app/task/task.routes").then((m) => m.routes),
       },
     ],
   },

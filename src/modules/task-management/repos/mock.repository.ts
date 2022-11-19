@@ -1,8 +1,7 @@
-import { Injectable } from "@angular/core";
-import { AbstractRepository, Task } from "@core/infra";
+import { AbstractRepository } from "@shared/domain";
+import { Task } from "@task-management/domain/entities";
 import { Observable, of } from "rxjs";
 
-@Injectable()
 export class MockRepository implements AbstractRepository<Task> {
   private tasks: Task[];
 
