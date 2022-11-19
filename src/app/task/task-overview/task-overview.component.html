@@ -1,7 +1,7 @@
 <ul *ngFor="let task of service.tasks$ | async">
   <li>
     <span>
-      <a routerLink="/tasks/{{ task.id }}">{{ task.id }}</a>
+      <a routerLink="/tasks/{{ task.slug }}">{{ task.slug }}</a>
     </span>
     : {{ task.title }} ({{ task.content }})
   </li>

@@ -22,9 +22,9 @@ export class TaskDetailComponent {
     this.service = inject(TaskFacade);
 
     this.task$ = this.route.paramMap.pipe(
-      map((params) => Number(params.get("id"))),
-      filter((id) => !isNaN(id)),
-      switchMap((id) => this.service.getTaskById(id)),
+      map((params) => params.get("slug")),
+      filter((slug) => slug !== null),
+      switchMap((slug) => this.service.getTaskBySlug(slug!)),
     );
   }
 }

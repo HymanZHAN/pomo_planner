@@ -11,7 +11,7 @@ export const routes: Route[] = [
     providers: [{ provide: TaskFacade, useValue: mockTaskFacade }],
     children: [
       {
-        path: ":id",
+        path: ":slug",
         loadComponent: () =>
           import("./task-detail/task-detail.component").then((m) => m.TaskDetailComponent),
       },

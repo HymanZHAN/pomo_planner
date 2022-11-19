@@ -1,7 +1,6 @@
 export interface TaskDto {
-  id: number;
+  slug: string;
   title: string;
   content: string | null;
   completed: boolean;
-  authorId: number;
 }

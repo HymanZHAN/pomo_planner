@@ -7,8 +7,20 @@ export class MockRepository implements AbstractRepository<Task> {
 
   constructor() {
     this.tasks = [
-      { id: 1, authorId: 1, title: "Task 1", content: "Content of Task 1", completed: true },
-      { id: 2, authorId: 2, title: "Task 2", content: "Content of Task 2", completed: false },
+      Task.create({
+        slug: "ASDF",
+        authorId: 1,
+        title: "Task 1",
+        content: "Content of Task 1",
+        completed: true,
+      }),
+      Task.create({
+        slug: "ASDG",
+        authorId: 2,
+        title: "Task 2",
+        content: "Content of Task 2",
+        completed: false,
+      }),
     ];
   }
 
@@ -16,7 +28,7 @@ export class MockRepository implements AbstractRepository<Task> {
     return of(this.tasks);
   }
 
-  get(id: number) {
-    return of(this.tasks.find((t) => t.id === id));
+  get(slug: string) {
+    return of(this.tasks.find((t) => t.slug === slug));
   }
 }
