@@ -1,7 +1,7 @@
 import { transition, trigger, useAnimation } from "@angular/animations";
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { Router, RouterLinkActive, RouterLinkWithHref, RouterOutlet } from "@angular/router";
+import { Router, RouterLinkActive, RouterLink, RouterOutlet } from "@angular/router";
 
 import {
   fadeInAnimation,
@@ -37,7 +37,7 @@ import {
     CommonModule,
     RouterOutlet,
     RouterLinkActive,
-    RouterLinkWithHref,
+    RouterLink,
     RouterLinkActive,
     ClickOutsideDirective,
     HeroCalendarComponent,
