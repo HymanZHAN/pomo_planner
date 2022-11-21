@@ -1,5 +1,5 @@
 import { AbstractRepository } from "@shared/domain";
-import { Task } from "@task-management/domain/entities";
+import { Priority, Task, TaskStatus } from "@task-management/domain/entities";
 import { Observable, of } from "rxjs";
 
 export class MockRepository implements AbstractRepository<Task> {
@@ -8,18 +8,20 @@ export class MockRepository implements AbstractRepository<Task> {
   constructor() {
     this.tasks = [
       Task.create({
-        slug: "ASDF",
+        slug: "ABCD",
         authorId: 1,
         title: "Task 1",
         content: "Content of Task 1",
-        completed: true,
+        status: TaskStatus.DONE,
+        priority: Priority.P1,
       }),
       Task.create({
-        slug: "ASDG",
+        slug: "EFGH",
         authorId: 2,
         title: "Task 2",
         content: "Content of Task 2",
-        completed: false,
+        status: TaskStatus.ONGOING,
+        priority: Priority.P3,
       }),
     ];
   }

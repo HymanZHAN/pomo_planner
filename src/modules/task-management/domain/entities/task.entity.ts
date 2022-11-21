@@ -1,21 +1,36 @@
-import { Entity } from "@shared/domain/entity";
+import { AggregateRoot } from "@shared/domain/aggregate-root";
 
-enum Priority {
-  P1,
-  P2,
-  P3,
-  P4,
-}
+export const Priority = {
+  P1: "P1",
+  P2: "P2",
+  P3: "P3",
+  P4: "P4",
+} as const;
+export type PriorityType = typeof Priority[keyof typeof Priority];
+
+export const TaskStatus = {
+  BACKLOGGED: "backlogged",
+  ONGOING: "ongoing",
+  STUCK: "stuck",
+  DONE: "done",
+  ARCHIVED: "archived",
+} as const;
+export type TaskStatusType = typeof TaskStatus[keyof typeof TaskStatus];
 
 interface TaskProps {
   slug: string;
   title: string;
   content: string | null;
-  completed: boolean;
+
+  startDate?: Date;
+  endDate?: Date;
+
+  priority?: PriorityType;
+  status: TaskStatusType;
   authorId: number;
 }
 
-export class Task extends Entity<TaskProps> {
+export class Task extends AggregateRoot<TaskProps> {
   get slug() {
     return this.props.slug;
   }
@@ -28,8 +43,20 @@ export class Task extends Entity<TaskProps> {
     return this.props.content;
   }
 
-  get completed() {
-    return this.props.completed;
+  get startDate() {
+    return this.props.startDate;
+  }
+
+  get endDate() {
+    return this.props.endDate;
+  }
+
+  get status() {
+    return this.props.status;
+  }
+
+  get priority() {
+    return this.props.priority;
   }
 
   private constructor(props: TaskProps, id?: string) {

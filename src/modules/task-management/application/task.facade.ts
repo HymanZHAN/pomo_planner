@@ -1,7 +1,7 @@
 import { AbstractRepository } from "@shared/domain/repository";
 import { MockRepository } from "@task-management/repos";
 import { BehaviorSubject, filter, map } from "rxjs";
-import { Task } from "../domain/entities";
+import { Task, TaskStatus } from "../domain/entities";
 
 import { TaskDto } from "./task.dto";
 
@@ -9,7 +9,7 @@ export class TaskFacade {
   private tasks = new BehaviorSubject<TaskDto[]>([]);
   readonly tasks$ = this.tasks.asObservable();
 
-  constructor(private repo: AbstractRepository<TaskDto>) {
+  constructor(private repo: AbstractRepository<Task>) {
     this.repo
       .list()
       .pipe(
@@ -19,7 +19,8 @@ export class TaskFacade {
               slug: t.slug,
               title: t.title,
               content: t.content,
-              completed: t.completed,
+              completed: t.status === TaskStatus.DONE,
+              status: t.status,
             } as TaskDto;
           }),
         ),
@@ -35,7 +36,9 @@ export class TaskFacade {
           slug: t?.slug,
           title: t?.title,
           content: t?.content,
-          completed: t?.completed,
+          completed: t?.status === TaskStatus.DONE,
+          status: t?.status,
+          priority: t?.priority,
         } as TaskDto;
       }),
     );

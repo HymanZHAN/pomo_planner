@@ -138,8 +138,10 @@ module.exports = {
     "./src/styles/**/*.scss",
     "./src/app/*.{ts,html,scss}",
     "./src/app/core/**/*.{ts,html,scss}",
-    "./src/app/features/**/*.{ts,html,scss}",
-    "./src/app/shared/**/*.{ts,html,scss}",
+    "./src/app/goal/**/*.{ts,html,scss}",
+    "./src/app/plan/**/*.{ts,html,scss}",
+    "./src/app/task/**/*.{ts,html,scss}",
+    "./src/shared/**/*.{ts,html,scss}",
   ],
   theme: {
     extend: {
