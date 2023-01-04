@@ -18,29 +18,15 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "paths": {
-      "@core/*": [
-        "src/app/core/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ],
-      "@modules/*": [
-        "src/modules/*"
-      ],
-      "@task-management/*": [
-        "src/modules/task-management/*"
-      ],
-      "@pomodoro/*": [
-        "src/modules/pomodoro/*"
-      ],
-      "@planning/*": [
-        "src/modules/planning/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/shared/*"],
+      "@modules/*": ["src/modules/*"],
+      "@task-management/*": ["src/modules/task-management/*"],
+      "@pomodoro/*": ["src/modules/pomodoro/*"],
+      "@planning/*": ["src/modules/planning/*"]
     },
     "useDefineForClassFields": false
   },

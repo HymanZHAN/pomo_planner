@@ -1,0 +1,24 @@
+{
+  "root": false,
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["@pomodoro/*", "!@pomodoro/application"],
+            "message": "Accessing non-application layers of pomodoro module is not allowed."
+          },
+          {
+            "group": ["@task-management/*", "!@task-management/application"],
+            "message": "Accessing non-application layers of task-management module is not allowed."
+          },
+          {
+            "group": ["@app/*"],
+            "message": "Accessing UI code from modules is not allowed."
+          }
+        ]
+      }
+    ]
+  }
+}

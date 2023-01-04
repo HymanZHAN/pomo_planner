@@ -6,7 +6,6 @@ interface ValueObjectProps {
  * @desc ValueObjects are objects that we determine their
  * equality through their structural property.
  */
-
 export abstract class ValueObject<T extends ValueObjectProps> {
   public props: T;
 
