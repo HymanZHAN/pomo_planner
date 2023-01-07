@@ -3,7 +3,7 @@ import { Duration } from "./duration";
 
 interface ArrangedTaskProps {
   taskId: string;
-  duration: Duration;
+  arrangedTo: Duration;
 }
 
 export class ArrangedTask extends Entity<ArrangedTaskProps> {}

@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { filter, map, Observable, switchMap } from "rxjs";
@@ -11,6 +11,7 @@ import { TaskDto, TaskFacade } from "src/modules/task-management/application";
   imports: [CommonModule],
   templateUrl: "./task-detail.component.html",
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskDetailComponent {
   service: TaskFacade;

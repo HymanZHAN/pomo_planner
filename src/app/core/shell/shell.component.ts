@@ -67,19 +67,9 @@ import {
       transition(":enter", useAnimation(expandAnimation)),
       transition(":leave", useAnimation(shrinkAnimation)),
     ]),
-    trigger("sidebarOverlay", [
-      transition(
-        ":enter",
-        useAnimation(fadeInAnimation, {
-          params: { time: "300ms", easing: "ease" },
-        }),
-      ),
-      transition(
-        ":leave",
-        useAnimation(fadeOutAnimation, {
-          params: { time: "300ms", easing: "ease" },
-        }),
-      ),
+    trigger("profileFadeInOut", [
+      transition(":enter", useAnimation(fadeInAnimation, { params: { time: "400ms" } })),
+      transition(":leave", useAnimation(fadeOutAnimation, { params: { time: "0ms" } })),
     ]),
     animContainer,
   ],
