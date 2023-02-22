@@ -1,17 +1,17 @@
 import { ValueObject } from "@shared/domain/value-object";
 import { isEqual } from "date-fns";
 
-interface TimeslotProps {
+interface TimeSlotProps {
   start: Date;
   end: Date;
 }
 
-export class Timeslot extends ValueObject<TimeslotProps> {
+export class TimeSlot extends ValueObject<TimeSlotProps> {
   public static of(start: Date, end: Date) {
-    return new Timeslot({ start, end });
+    return new TimeSlot({ start, end });
   }
 
-  public override equals(vo?: ValueObject<TimeslotProps> | undefined): boolean {
+  public override equals(vo?: ValueObject<TimeSlotProps> | undefined): boolean {
     if (vo === null || vo === undefined) {
       return false;
     }

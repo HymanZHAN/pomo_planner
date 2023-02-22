@@ -10,38 +10,31 @@ export class TaskFacade {
   readonly tasks$ = this.tasks.asObservable();
 
   constructor(private repo: AbstractRepository<Task>) {
-    this.repo
-      .list()
-      .pipe(
-        map((tasks) =>
-          tasks.map((t) => {
-            return {
-              slug: t.slug,
-              title: t.title,
-              content: t.content,
-              completed: t.status === TaskStatus.DONE,
-              status: t.status,
-            } as TaskDto;
-          }),
-        ),
-      )
-      .subscribe((tasks) => this.tasks.next(tasks));
+    const tasks = this.repo.list().map((t) => {
+      return {
+        slug: t.slug,
+        title: t.title,
+        content: t.content,
+        completed: t.status === TaskStatus.DONE,
+        status: t.status,
+      } as TaskDto;
+    });
+    this.tasks.next(tasks);
   }
 
   getTaskBySlug(slug: string) {
-    return this.repo.get(slug).pipe(
-      filter((t) => !!t),
-      map((t) => {
-        return {
-          slug: t?.slug,
-          title: t?.title,
-          content: t?.content,
-          completed: t?.status === TaskStatus.DONE,
-          status: t?.status,
-          priority: t?.priority,
-        } as TaskDto;
-      }),
-    );
+    const task = this.repo.get(slug);
+    if (task) {
+      return {
+        slug: task?.slug,
+        title: task?.title,
+        content: task?.content,
+        completed: task?.status === TaskStatus.DONE,
+        status: task?.status,
+        priority: task?.priority,
+      } as TaskDto;
+    }
+    return undefined;
   }
 }
 

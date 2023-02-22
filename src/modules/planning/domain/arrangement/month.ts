@@ -30,4 +30,8 @@ export class Month extends ValueObject<MonthProps> implements Duration {
 
     return isEqual(selfYear, otherYear) && isEqual(selfMonth, otherMonth);
   }
+
+  private constructor(props: MonthProps) {
+    super(props);
+  }
 }

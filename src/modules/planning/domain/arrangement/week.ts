@@ -1,6 +1,14 @@
 import { ValueObject } from "@shared/domain/value-object";
 import { Duration, DurationProps } from "./duration";
-import { getWeek, previousSunday, nextSaturday, isEqual } from "date-fns";
+import {
+  getWeek,
+  previousSunday,
+  nextSaturday,
+  isEqual,
+  startOfDay,
+  isSaturday,
+  isSunday,
+} from "date-fns";
 
 interface WeekProps extends DurationProps {
   weekNumber: number;
@@ -9,8 +17,8 @@ interface WeekProps extends DurationProps {
 export class Week extends ValueObject<WeekProps> implements Duration {
   public static of(currentDate: Date) {
     const weekNumber = getWeek(currentDate);
-    const start = previousSunday(currentDate);
-    const end = nextSaturday(currentDate);
+    const start = isSunday(currentDate) ? startOfDay(currentDate) : previousSunday(currentDate);
+    const end = isSaturday(currentDate) ? startOfDay(currentDate) : nextSaturday(currentDate);
 
     return new Week({ weekNumber, start, end });
   }
@@ -27,5 +35,9 @@ export class Week extends ValueObject<WeekProps> implements Duration {
     const { start: otherStart, end: otherEnd } = vo.props;
 
     return isEqual(selfStart, otherStart) && isEqual(selfEnd, otherEnd);
+  }
+
+  private constructor(props: WeekProps) {
+    super(props);
   }
 }

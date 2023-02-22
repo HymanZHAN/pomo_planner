@@ -23,10 +23,10 @@
       "@app/*": ["src/app/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/shared/*"],
-      "@modules/*": ["src/modules/*"],
       "@task-management/*": ["src/modules/task-management/*"],
       "@pomodoro/*": ["src/modules/pomodoro/*"],
-      "@planning/*": ["src/modules/planning/*"]
+      "@planning/*": ["src/modules/planning/*"],
+      "@modules/*": ["src/modules/*"]
     },
     "useDefineForClassFields": false
   },

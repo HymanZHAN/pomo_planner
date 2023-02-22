@@ -1,8 +1,8 @@
+import { ValueObject } from "@shared/domain/value-object";
+
 export interface DurationProps {
   start: Date;
   end: Date;
 }
 
-export interface Duration {
-  props: DurationProps;
-}
+export type Duration = ValueObject<DurationProps>;

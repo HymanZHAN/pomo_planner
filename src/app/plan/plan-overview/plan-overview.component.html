@@ -1,1 +1,41 @@
-<p>plan-overview works!</p>
+<span class="isolate inline-flex rounded-md shadow-sm mb-6">
+  <button
+    class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+    (click)="handleWeekChange(1)"
+    type="button"
+  >
+    Week 1
+  </button>
+
+  <button
+    class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+    (click)="handleWeekChange(2)"
+    type="button"
+  >
+    Week 2
+  </button>
+</span>
+
+<fieldset>
+  <legend class="text-lg font-medium text-gray-900">Todos for the Week</legend>
+  <ng-container *ngFor="let task of tasksForTheWeek; trackBy: trackById">
+    <div class="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200 w-1/3">
+      <div class="relative flex items-start py-4">
+        <div class="min-w-0 flex-1 text-sm">
+          <label class="select-none font-medium text-gray-700" for="person-1">
+            {{ task.content }}
+          </label>
+        </div>
+        <div class="ml-3 flex h-5 items-center">
+          <input
+            class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+            id="person-1"
+            name="person-1"
+            [checked]="task.completed"
+            type="checkbox"
+          />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</fieldset>

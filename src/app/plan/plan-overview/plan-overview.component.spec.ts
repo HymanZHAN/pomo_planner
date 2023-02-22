@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import {
+  ArrangementFacade,
+  MockArrangementAppService,
+} from "@planning/application/arrangement.service";
 
 import { PlanOverviewComponent } from "./plan-overview.component";
 
@@ -9,6 +13,7 @@ describe("PlanOverviewComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PlanOverviewComponent],
+      providers: [{ provide: ArrangementFacade, useClass: MockArrangementAppService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PlanOverviewComponent);

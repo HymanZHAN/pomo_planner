@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
-import { filter, map, Observable, switchMap } from "rxjs";
+import { filter, map, Observable, of, switchMap } from "rxjs";
 
 import { TaskDto, TaskFacade } from "src/modules/task-management/application";
 
@@ -25,7 +25,7 @@ export class TaskDetailComponent {
     this.task$ = this.route.paramMap.pipe(
       map((params) => params.get("slug")),
       filter((slug) => slug !== null),
-      switchMap((slug) => this.service.getTaskBySlug(slug!)),
+      switchMap((slug) => of(this.service.getTaskBySlug(slug!))),
     );
   }
 }

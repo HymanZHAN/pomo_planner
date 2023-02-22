@@ -6,11 +6,21 @@
       {
         "patterns": [
           {
-            "group": ["@pomodoro/*", "!@pomodoro/application"],
+            "group": [
+              "@pomodoro/*",
+              "@modules/pomodoro/*",
+              "!@pomodoro/application",
+              "!@modules/pomodoro/application"
+            ],
             "message": "Accessing non-application layers of pomodoro module is not allowed."
           },
           {
-            "group": ["@task-management/*", "!@task-management/application"],
+            "group": [
+              "@task-management/*",
+              "@modules/task-management/*",
+              "!@task-management/application",
+              "!@modules/task-management/application"
+            ],
             "message": "Accessing non-application layers of task-management module is not allowed."
           },
           {

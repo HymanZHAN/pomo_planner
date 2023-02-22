@@ -32,4 +32,8 @@ export class Day extends ValueObject<DayProps> implements Duration {
       selfDate.getDate() === otherDate.getDate()
     );
   }
+
+  private constructor(props: DayProps) {
+    super(props);
+  }
 }

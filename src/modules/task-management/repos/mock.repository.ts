@@ -1,6 +1,5 @@
 import { AbstractRepository } from "@shared/domain";
 import { Priority, Task, TaskStatus } from "@task-management/domain/entities";
-import { Observable, of } from "rxjs";
 
 export class MockRepository implements AbstractRepository<Task> {
   private tasks: Task[];
@@ -26,11 +25,11 @@ export class MockRepository implements AbstractRepository<Task> {
     ];
   }
 
-  list(): Observable<Task[]> {
-    return of(this.tasks);
+  list(): Task[] {
+    return this.tasks;
   }
 
   get(slug: string) {
-    return of(this.tasks.find((t) => t.slug === slug));
+    return this.tasks.find((t) => t.slug === slug);
   }
 }
