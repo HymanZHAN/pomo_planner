@@ -1,48 +1,36 @@
-import { Week, Day } from "@planning/domain/arrangement";
-import { ArrangementManager } from "@planning/domain/arrangement/arrangement.service";
-import { MockRepository } from "@planning/repos";
+import { Week, Day, Month } from "@planning/domain/arrangement";
 import { TaskDto } from "@task-management/application";
 import { ArrangedTaskDto } from "./arranged-task.dto";
-import { toArrangedTaskDto } from "./mapper";
 
 export abstract class ArrangementFacade {
   // queries
-  abstract getArrangedTasksByWeek(date: Date): ArrangedTaskDto[];
+  abstract getArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]>;
+  abstract getArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]>;
+  abstract getArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]>;
 
   // commands
-  abstract arrangeTaskToWeek(task: TaskDto, week: Week): boolean;
-  abstract arrangeTaskToDay(task: TaskDto, day: Day): boolean;
+  abstract arrangeTaskToDay(content: string, day: Day, taskId?: string | number): boolean;
+  abstract arrangeTaskToWeek(content: string, week: Week, taskId?: string | number): boolean;
+  abstract arrangeTaskToMonth(content: string, month: Month, taskId?: string | number): boolean;
 }
 
 export class ArrangementAppService implements ArrangementFacade {
-  getArrangedTasksByWeek(date: Date): ArrangedTaskDto[] {
+  getArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
-  arrangeTaskToDay(task: TaskDto, day: Day): boolean {
+  getArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
-  arrangeTaskToWeek(task: TaskDto, week: Week): boolean {
+  getArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
-}
-
-export class MockArrangementAppService implements ArrangementFacade {
-  service: ArrangementManager;
-
-  constructor() {
-    const repo = new MockRepository();
-    this.service = new ArrangementManager(repo);
-  }
-
-  getArrangedTasksByWeek(date: Date) {
-    const currentWeek = Week.of(date);
-    return this.service.getArrangedTaskForDuration(currentWeek).map(toArrangedTaskDto);
-  }
-
-  arrangeTaskToDay(task: TaskDto, day: Day): boolean {
+  arrangeTaskToDay(content: string, day: Day, taskId?: string | number | undefined): boolean {
     throw new Error("Method not implemented.");
   }
-  arrangeTaskToWeek(task: TaskDto, week: Week): boolean {
+  arrangeTaskToWeek(content: string, week: Week, taskId?: string | number | undefined): boolean {
+    throw new Error("Method not implemented.");
+  }
+  arrangeTaskToMonth(content: string, month: Month, taskId?: string | number | undefined): boolean {
     throw new Error("Method not implemented.");
   }
 }

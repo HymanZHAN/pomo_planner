@@ -25,11 +25,11 @@ export class MockRepository implements AbstractRepository<Task> {
     ];
   }
 
-  list(): Task[] {
-    return this.tasks;
+  list(): Promise<Task[]> {
+    return Promise.resolve(this.tasks);
   }
 
-  get(slug: string) {
-    return this.tasks.find((t) => t.slug === slug);
+  get(slug: string): Promise<Task | null> {
+    return Promise.resolve(this.tasks.find((t) => t.slug === slug) ?? null);
   }
 }

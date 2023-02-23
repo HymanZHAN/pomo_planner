@@ -1,8 +1,6 @@
 import { Route } from "@angular/router";
-import {
-  ArrangementFacade,
-  MockArrangementAppService,
-} from "@planning/application/arrangement.service";
+import { ArrangementFacade } from "@planning/application/arrangement.service";
+import { MockArrangementAppService } from "@planning/application/mock-arrangement.service";
 import { PlanOverviewComponent } from "./plan-overview/plan-overview.component";
 
 export const routes: Route[] = [

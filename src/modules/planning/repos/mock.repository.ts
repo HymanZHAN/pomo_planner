@@ -31,11 +31,11 @@ export class MockRepository implements AbstractRepository<ArrangedTask> {
     this.tasks = tasksStub;
   }
 
-  get(id: string | number): ArrangedTask | undefined {
+  async get(id: string | number): Promise<ArrangedTask | null> {
     throw new Error("Method not implemented.");
   }
 
-  list(): ArrangedTask[] {
+  async list(): Promise<ArrangedTask[]> {
     return this.tasks;
   }
 }

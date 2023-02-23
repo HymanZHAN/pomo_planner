@@ -1,2 +1,2 @@
-export * from "./task.facade";
+export * from "./task.service";
 export * from "./task.dto";

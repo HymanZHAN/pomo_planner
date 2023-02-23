@@ -6,8 +6,9 @@ import { Duration } from "./duration";
 export class ArrangementManager {
   constructor(private repo: AbstractRepository<ArrangedTask>) {}
 
-  getArrangedTaskForDuration(duration: Duration) {
-    return this.repo.list().filter((t) => t.arrangedTo.equals(duration));
+  async getArrangedTaskForDuration(duration: Duration) {
+    const tasks = await this.repo.list();
+    return tasks.filter((t) => t.arrangedTo.equals(duration));
   }
 
   arrangeTask(task: TaskDto) {}
