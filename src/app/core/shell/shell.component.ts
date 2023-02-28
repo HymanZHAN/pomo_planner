@@ -67,10 +67,6 @@ import {
       transition(":enter", useAnimation(expandAnimation)),
       transition(":leave", useAnimation(shrinkAnimation)),
     ]),
-    trigger("profileFadeInOut", [
-      transition(":enter", useAnimation(fadeInAnimation, { params: { time: "400ms" } })),
-      transition(":leave", useAnimation(fadeOutAnimation, { params: { time: "0ms" } })),
-    ]),
     animContainer,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
