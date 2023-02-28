@@ -1,4 +1,4 @@
-import { ValueObject } from "@shared/domain/value-object";
+import { ValueObject } from "@shared/domain";
 import { isEqual } from "date-fns";
 
 interface TimeSlotProps {

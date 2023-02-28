@@ -1,4 +1,4 @@
-import { AggregateRoot } from "@shared/domain/aggregate-root";
+import { AggregateRoot } from "@shared/domain";
 
 export const Priority = {
   P1: "P1",

@@ -11,10 +11,12 @@ export class TaskFacade {
   readonly tasks$ = this.tasks.asObservable();
 
   constructor(private repo: AbstractRepository<Task>) {
-    this.repo.list().then((tasks) => {
-      const result = tasks.map(toTaskDto);
-      this.tasks.next(result);
-    });
+    this.repo
+      .listBy(() => true)
+      .then((tasks) => {
+        const result = tasks.map(toTaskDto);
+        this.tasks.next(result);
+      });
   }
 
   async getTaskBySlug(slug: string) {

@@ -7,7 +7,7 @@ export class ArrangementManager {
   constructor(private repo: AbstractRepository<ArrangedTask>) {}
 
   async getArrangedTaskForDuration(duration: Duration) {
-    const tasks = await this.repo.list();
+    const tasks = await this.repo.listBy(() => true);
     return tasks.filter((t) => t.arrangedTo.equals(duration));
   }
 

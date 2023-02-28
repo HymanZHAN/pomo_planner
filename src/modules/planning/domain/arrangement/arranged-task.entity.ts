@@ -1,4 +1,4 @@
-import { Entity } from "@shared/domain/entity";
+import { Entity } from "@shared/domain";
 import { Duration } from "./duration";
 
 interface ArrangedTaskProps {

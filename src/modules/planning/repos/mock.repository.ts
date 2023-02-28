@@ -32,10 +32,10 @@ export class MockRepository implements AbstractRepository<ArrangedTask> {
   }
 
   async get(id: string | number): Promise<ArrangedTask | null> {
-    throw new Error("Method not implemented.");
+    return Promise.resolve(this.tasks.find((t) => t.id === id) ?? null);
   }
 
-  async list(): Promise<ArrangedTask[]> {
-    return this.tasks;
+  listBy(predicate: (i: ArrangedTask) => boolean): Promise<ArrangedTask[]> {
+    return Promise.resolve(this.tasks.filter(predicate));
   }
 }

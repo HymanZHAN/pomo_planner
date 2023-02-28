@@ -3,10 +3,13 @@ import { TaskDto } from "@task-management/application";
 import { ArrangedTaskDto } from "./arranged-task.dto";
 
 export abstract class ArrangementFacade {
-  // queries
-  abstract getArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]>;
-  abstract getArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]>;
-  abstract getArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]>;
+  // queries - by time
+  abstract listArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]>;
+  abstract listArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]>;
+  abstract listArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]>;
+
+  // queries - by text
+  abstract searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]>;
 
   // commands
   abstract arrangeTaskToDay(content: string, day: Day, taskId?: string | number): boolean;
@@ -15,13 +18,17 @@ export abstract class ArrangementFacade {
 }
 
 export class ArrangementAppService implements ArrangementFacade {
-  getArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]> {
+  searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
-  getArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]> {
+
+  listArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
-  getArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]> {
+  listArrangedTasksByWeek(date: Date): Promise<ArrangedTaskDto[]> {
+    throw new Error("Method not implemented.");
+  }
+  listArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
   arrangeTaskToDay(content: string, day: Day, taskId?: string | number | undefined): boolean {

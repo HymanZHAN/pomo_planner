@@ -1,4 +1,4 @@
-import { ValueObject } from "@shared/domain/value-object";
+import { ValueObject } from "@shared/domain";
 import { Duration, DurationProps } from "./duration";
 
 interface DayProps extends DurationProps {

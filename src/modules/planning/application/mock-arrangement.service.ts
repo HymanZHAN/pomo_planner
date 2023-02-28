@@ -1,7 +1,6 @@
 import { Day, Month, Week } from "@planning/domain";
 import { ArrangementManager } from "@planning/domain/arrangement/arrangement.service";
 import { MockRepository } from "@planning/repos";
-import { TaskDto } from "@task-management/application";
 import { ArrangedTaskDto } from "./arranged-task.dto";
 import { ArrangementFacade } from "./arrangement.service";
 import { toArrangedTaskDto } from "./mapper";
@@ -14,18 +13,28 @@ export class MockArrangementAppService implements ArrangementFacade {
     this.service = new ArrangementManager(repo);
   }
 
-  async getArrangedTasksByWeek(date: Date) {
+  searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]> {
+    throw new Error("Method not implemented.");
+  }
+
+  async listArrangedTasksByWeek(date: Date) {
     const currentWeek = Week.of(date);
     const tasks = await this.service.getArrangedTaskForDuration(currentWeek);
     return tasks.map(toArrangedTaskDto);
   }
 
-  getArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]> {
-    throw new Error("Method not implemented.");
+  async listArrangedTasksByDay(date: Date): Promise<ArrangedTaskDto[]> {
+    const today = Day.of(date);
+    const tasks = await this.service.getArrangedTaskForDuration(today);
+    return tasks.map(toArrangedTaskDto);
   }
-  getArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]> {
-    throw new Error("Method not implemented.");
+
+  async listArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]> {
+    const currentMonth = Month.of(date);
+    const tasks = await this.service.getArrangedTaskForDuration(currentMonth);
+    return tasks.map(toArrangedTaskDto);
   }
+
   arrangeTaskToDay(content: string, day: Day, taskId?: string | number | undefined): boolean {
     throw new Error("Method not implemented.");
   }

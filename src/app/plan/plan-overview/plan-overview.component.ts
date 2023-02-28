@@ -21,6 +21,6 @@ export class PlanOverviewComponent {
 
   async handleWeekChange(weekNumber: number) {
     const weekDate = new Date(2023, weekNumber, 14);
-    this.tasksForTheWeek = await this.service.getArrangedTasksByWeek(weekDate);
+    this.tasksForTheWeek = await this.service.listArrangedTasksByWeek(weekDate);
   }
 }
