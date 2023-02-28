@@ -1,0 +1,25 @@
+{
+  "root": false,
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": [
+              "@task-management/*",
+              "@modules/task-management/*",
+              "!@task-management/domain",
+              "!@modules/task-management/domain"
+            ],
+            "message": "Accessing non-domain layers is not allowed from within the domain layer."
+          },
+          {
+            "group": ["@shared/*", "!@shared/domain"],
+            "message": "Accessing the shared layers of the application is not allowed from within the domain layer."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "root": false,
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": [
+              "@planning/*",
+              "@modules/planning/*",
+              "!@planning/domain",
+              "!@modules/planning/domain"
+            ],
+            "message": "Accessing non-domain layers is not allowed from within the domain layer."
+          },
+          {
+            "group": ["@shared/*", "!@shared/domain"],
+            "message": "Accessing the shared layers of the application is not allowed from within the domain layer."
+          }
+        ]
+      }
+    ]
+  }
+}
