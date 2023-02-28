@@ -1,5 +1,14 @@
 {
-  "cSpell.words": ["commitlint", "heroicon", "heroicons", "ngneat", "pomodoro", "popl", "tauri"],
+  "cSpell.words": [
+    "brotli",
+    "commitlint",
+    "heroicon",
+    "heroicons",
+    "ngneat",
+    "pomodoro",
+    "popl",
+    "tauri"
+  ],
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
