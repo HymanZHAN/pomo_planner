@@ -1,5 +1,4 @@
 import { Week, Day, Month } from "@planning/domain/arrangement";
-import { TaskDto } from "@task-management/application";
 import { ArrangedTaskDto } from "./arranged-task.dto";
 
 export abstract class ArrangementFacade {
@@ -9,7 +8,7 @@ export abstract class ArrangementFacade {
   abstract listArrangedTasksByMonth(date: Date): Promise<ArrangedTaskDto[]>;
 
   // queries - by text
-  abstract searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]>;
+  abstract searchArrangedTasks(searchText: string): Promise<ArrangedTaskDto[]>;
 
   // commands
   abstract arrangeTaskToDay(content: string, day: Day, taskId?: string | number): boolean;
@@ -18,7 +17,7 @@ export abstract class ArrangementFacade {
 }
 
 export class ArrangementAppService implements ArrangementFacade {
-  searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]> {
+  searchArrangedTasks(searchText: string): Promise<ArrangedTaskDto[]> {
     throw new Error("Method not implemented.");
   }
 

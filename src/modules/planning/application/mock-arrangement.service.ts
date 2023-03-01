@@ -13,8 +13,9 @@ export class MockArrangementAppService implements ArrangementFacade {
     this.service = new ArrangementManager(repo);
   }
 
-  searchArrangedTask(searchText: string): Promise<ArrangedTaskDto[]> {
-    throw new Error("Method not implemented.");
+  async searchArrangedTasks(searchText: string): Promise<ArrangedTaskDto[]> {
+    const tasks = await this.service.searchArrangedTasks(searchText);
+    return tasks.map(toArrangedTaskDto);
   }
 
   async listArrangedTasksByWeek(date: Date) {

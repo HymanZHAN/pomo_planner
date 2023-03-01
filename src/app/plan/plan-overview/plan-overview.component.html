@@ -16,6 +16,10 @@
   </button>
 </span>
 
+<label for="search-input">Search Tasks: </label>
+<input id="search-input" [(ngModel)]="searchText" type="text" />
+<button (click)="searchArrangedTasks()" type="button">Search</button>
+
 <fieldset>
   <legend class="text-lg font-medium text-gray-900">Todos for the Week</legend>
   <ng-container *ngFor="let task of tasksForTheWeek; trackBy: trackById">
