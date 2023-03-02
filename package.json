@@ -13,8 +13,8 @@
     "test": "ng test",
     "test-watch": "ng test --watch",
     "test-ci": "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI",
-    "fmt": "prettier --write --cache --cache-location=.prettier/.prettier-cache src",
-    "lint": "prettier -c ./src --cache && ng lint",
+    "fmt": "prettier -w --cache --cache-location=.prettier/.prettier-cache src",
+    "lint": "prettier -c ./src --cache --cache-location=.prettier/.prettier-cache && ng lint",
     "gfc": "ng g c --inline-style",
     "guic": "ng g c --inline-style --inline-template --flat"
   },
