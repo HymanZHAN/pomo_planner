@@ -1,10 +1,10 @@
 import { Entity } from "@shared/domain";
-import { Duration } from "./duration";
+import { DurationType } from "./duration";
 
 interface ArrangedTaskProps {
   taskId?: string;
   content: string;
-  arrangedTo: Duration;
+  arrangedTo: DurationType;
   completed: boolean;
 }
 

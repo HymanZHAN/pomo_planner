@@ -14,7 +14,7 @@ interface WeekProps extends DurationProps {
   weekNumber: number;
 }
 
-export class Week extends ValueObject<WeekProps> implements Duration {
+export class Week extends Duration<WeekProps> {
   public static of(currentDate: Date) {
     const weekNumber = getWeek(currentDate);
     const start = isSunday(currentDate) ? startOfDay(currentDate) : previousSunday(currentDate);
@@ -23,18 +23,12 @@ export class Week extends ValueObject<WeekProps> implements Duration {
     return new Week({ weekNumber, start, end });
   }
 
-  public override equals(vo?: ValueObject<WeekProps> | undefined): boolean {
+  public equals(vo?: Week | undefined): boolean {
     if (vo === null || vo === undefined) {
       return false;
     }
-    if (vo.props === undefined) {
-      return false;
-    }
 
-    const { start: selfStart, end: selfEnd } = this.props;
-    const { start: otherStart, end: otherEnd } = vo.props;
-
-    return isEqual(selfStart, otherStart) && isEqual(selfEnd, otherEnd);
+    return isEqual(this.start, vo.start) && isEqual(this.end, vo.end);
   }
 
   private constructor(props: WeekProps) {

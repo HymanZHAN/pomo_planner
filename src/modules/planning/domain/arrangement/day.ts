@@ -5,7 +5,11 @@ interface DayProps extends DurationProps {
   date: Date;
 }
 
-export class Day extends ValueObject<DayProps> implements Duration {
+export class Day extends Duration<DayProps> {
+  public get date(): Date {
+    return this.props.date;
+  }
+
   public static of(date: Date) {
     const start = new Date(date);
     start.setHours(0, 0, 0);
@@ -15,21 +19,15 @@ export class Day extends ValueObject<DayProps> implements Duration {
     return new Day({ date, start, end });
   }
 
-  public override equals(vo?: ValueObject<DayProps> | undefined): boolean {
+  public override equals(vo?: Day | undefined): boolean {
     if (vo === null || vo === undefined) {
       return false;
     }
-    if (vo.props === undefined) {
-      return false;
-    }
-
-    const { date: selfDate } = this.props;
-    const { date: otherDate } = vo.props;
 
     return (
-      selfDate.getFullYear() === otherDate.getFullYear() &&
-      selfDate.getMonth() === otherDate.getMonth() &&
-      selfDate.getDate() === otherDate.getDate()
+      this.date.getFullYear() === vo.date.getFullYear() &&
+      this.date.getMonth() === vo.date.getMonth() &&
+      this.date.getDate() === vo.date.getDate()
     );
   }
 

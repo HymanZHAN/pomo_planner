@@ -1,13 +1,21 @@
 import { ValueObject } from "@shared/domain";
 import { Duration, DurationProps } from "./duration";
-import { startOfMonth, endOfMonth, isEqual } from "date-fns";
+import { startOfMonth, endOfMonth } from "date-fns";
 
 interface MonthProps extends DurationProps {
   year: number;
   month: number;
 }
 
-export class Month extends ValueObject<MonthProps> implements Duration {
+export class Month extends Duration<MonthProps> {
+  public get year(): number {
+    return this.props.year;
+  }
+
+  public get month(): number {
+    return this.props.month;
+  }
+
   public static of(currentDate: Date) {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
@@ -17,18 +25,12 @@ export class Month extends ValueObject<MonthProps> implements Duration {
     return new Month({ year, month, start, end });
   }
 
-  public override equals(vo?: ValueObject<MonthProps> | undefined): boolean {
+  public equals(vo?: Month | undefined): boolean {
     if (vo === null || vo === undefined) {
       return false;
     }
-    if (vo.props === undefined) {
-      return false;
-    }
 
-    const { year: selfYear, month: selfMonth } = this.props;
-    const { year: otherYear, month: otherMonth } = vo.props;
-
-    return isEqual(selfYear, otherYear) && isEqual(selfMonth, otherMonth);
+    return this.year === vo.year && this.month === vo.month;
   }
 
   private constructor(props: MonthProps) {

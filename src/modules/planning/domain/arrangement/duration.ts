@@ -5,4 +5,19 @@ export interface DurationProps {
   end: Date;
 }
 
-export type Duration = ValueObject<DurationProps>;
+export abstract class Duration<T extends DurationProps> extends ValueObject<T> {
+  get start() {
+    return this.props.start;
+  }
+
+  get end() {
+    return this.props.end;
+  }
+
+  public abstract override equals(vo?: ValueObject<DurationProps> | undefined): boolean;
+  constructor(props: T) {
+    super(props);
+  }
+}
+
+export type DurationType = Duration<DurationProps>;

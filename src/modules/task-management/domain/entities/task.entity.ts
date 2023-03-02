@@ -6,7 +6,7 @@ export const Priority = {
   P3: "P3",
   P4: "P4",
 } as const;
-export type PriorityType = typeof Priority[keyof typeof Priority];
+export type PriorityType = (typeof Priority)[keyof typeof Priority];
 
 export const TaskStatus = {
   BACKLOGGED: "backlogged",
@@ -15,7 +15,7 @@ export const TaskStatus = {
   DONE: "done",
   ARCHIVED: "archived",
 } as const;
-export type TaskStatusType = typeof TaskStatus[keyof typeof TaskStatus];
+export type TaskStatusType = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 interface TaskProps {
   slug: string;
