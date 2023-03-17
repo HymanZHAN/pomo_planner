@@ -15,6 +15,7 @@ export abstract class Duration<T extends DurationProps> extends ValueObject<T> {
   }
 
   public abstract override equals(vo?: ValueObject<DurationProps> | undefined): boolean;
+
   constructor(props: T) {
     super(props);
   }
